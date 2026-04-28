@@ -5,7 +5,7 @@ CREATE TABLE Orders(
     orderDate DATETIME NOT NULL,
     lastModifiedDate DATETIME,
     shipByDate DATETIME,
-    orderstatus VARCHAR(50),
+    orderstatus VARCHAR(50) NOT NULL,
     amountPaid DECIMAL(9, 2),
     firstName VARCHAR(100) NOT NULL,
     lastName VARCHAR(100) NOT NULL,

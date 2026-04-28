@@ -1,16 +1,26 @@
 {
   "name": "singletable-for-shipstation-odbc",
   "version": "1.0.0",
-  "description": "odbcshipstationapp",
+  "description": "Store Front application that will be designed to use with mysql,  will connect to shiptation and shipengine in multiple ways",
+  "homepage": "https://github.com/laynex31/storefront#readme",
+  "bugs": {
+    "url": "https://github.com/laynex31/storefront/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laynex31/storefront.git"
+  },
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
-  "main": "index.js",
+  "type": "module",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "dependencies": {
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "mysql": "^2.18.1"
+    "mysql2": "^3.22.3"
   }
 }
