@@ -25,8 +25,31 @@ export async function getOrderNumber(orderNumber) {
 
 export async function createOrderharcoded() {
     const [result] = await pool.query(`INSERT INTO Orders (
-        orderNumber,orderDate,orderStatus, firstName, lastName, addressline1, city, states, postalcode, country, SKU, productName, price
+        orderNumber, orderDate ,orderStatus, firstName, lastName, addressline1, city, states, postalcode, country, SKU, productName, price
     )
 VALUES ("101", "2026-4-24","awaiting shipment", "john" ,"doe", "4301 Bull Creek Rd","austin","TX", "78731","US", "testproduct","testname","9.99" );`)
     return result
 };
+export async function createOrder(orderNumber, orderDate, orderStatus, firstName, lastName, addressline1, city, states, postalcode, country, SKU, productName, price) {
+  const [result] = await pool.query(
+    `INSERT INTO Orders ( 
+      orderNumber, orderDate, orderStatus, firstName, lastName, 
+      addressline1, city, states, postalcode, country, 
+      SKU, productName, price 
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`,
+    [orderNumber, orderDate, orderStatus, firstName, lastName, addressline1, city, states, postalcode, country, SKU, productName, price]
+  );
+  return result;
+}
+
+export async function createOrderForm(orderNumber, orderDate, orderStatus, firstName, lastName, addressline1, city, states, postalcode, country, SKU, productName, price) {
+  const [result] = await pool.query(
+    `INSERT INTO Orders ( 
+      orderNumber, orderDate, orderStatus, firstName, lastName, 
+      addressline1, city, states, postalcode, country, 
+      SKU, productName, price 
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`,
+    [orderNumber, orderDate, orderStatus, firstName, lastName, addressline1, city, states, postalcode, country, SKU, productName, price]
+  );
+  return result;
+}
