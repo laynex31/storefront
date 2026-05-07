@@ -42,7 +42,8 @@ export async function createOrder(orderNumber, orderDate, orderStatus, firstName
   return result;
 }
 
-export async function createOrderForm(orderNumber, orderDate, orderStatus, firstName, lastName, addressline1, city, states, postalcode, country, SKU, productName, price) {
+export async function createOrderForm({ orderNumber, orderDate, orderStatus, firstName, lastName, addressline1, city, states, postalcode, country, SKU, productName, price }) {
+  console.log(this)
   const [result] = await pool.query(
     `INSERT INTO Orders ( 
       orderNumber, orderDate, orderStatus, firstName, lastName, 

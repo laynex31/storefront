@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import fs from 'fs/promises';
 import url from 'url';
-import { getOrders, createOrderharcoded, getOrderNumber } from './database.js';
+import { getOrders, createOrderharcoded, getOrderNumber, createOrderForm } from './database.js';
 const app = express();
 app.use(express.json());
 
@@ -37,12 +37,15 @@ app.get(`/orders/:ordernumber`, async (req, res) => {
 }) 
 
 app.post('/createOrderForm', async (req, res) => {
-    const data2 = req.body
-    console.log(data2)
+    const data2array=Object.entries(req.body);
+    data2array.splice(2, 0,["orderStatus", "Awaiting Shipment"]);
+     const array2data=Object.fromEntries(data2array);
+    console.log(JSON.stringify(array2data));
+    const newOrderFromForm = await createOrderForm(array2data);
+
     res.sendStatus(200)
 }) 
 
 
 
 app.listen(8000, () => console.log(`server is running on port 8000`));
-
